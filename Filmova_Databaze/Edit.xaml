@@ -1,0 +1,77 @@
+﻿<Window x:Class="Filmova_Databaze.Edit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Filmova_Databaze"
+        mc:Ignorable="d"
+        Title="Edit" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Label Content="Name:"/>
+            <TextBox Text="{Binding Name}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label Content="Genre:"/>
+            <TextBox Text="{Binding Genre}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Label Content="Country of origin:"/>
+            <TextBox Text="{Binding CountryOfOrigin}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Year:"/>
+            <TextBox Text="{Binding Year}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <Label Content="Length:"/>
+            <TextBox Text="{Binding Length}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Label Content="Director:"/>
+            <TextBox Text="{Binding Director}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <Label Content="Script:"/>
+            <TextBox Text="{Binding Script}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <Label Content="Camera:"/>
+            <TextBox Text="{Binding Camera}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4">
+            <Label Content="Music:"/>
+            <TextBox Text="{Binding Music}" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <Label Content="Actors:"/>
+            <TextBox Text="{Binding Actors}" Margin="20, 0" />
+        </StackPanel>
+
+        <Button x:Name="AddButton" Content="Add / Change" Click="AddButton_Click" Grid.Row="10" Margin="0, 10" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>

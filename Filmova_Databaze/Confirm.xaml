@@ -1,0 +1,25 @@
+﻿<Window x:Class="Filmova_Databaze.Confirm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Filmova_Databaze"
+        mc:Ignorable="d"
+        Title="Confirm" Height="150" Width="250">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Are you sure you want to delete this entry?" Grid.ColumnSpan="2"/>
+
+        <Button Content="Yes" Grid.Row="1" Margin="10,10,10,10" Click="but_Yes_Click" Name="but_Yes"/>
+        <Button Content="No" Grid.Column="1" Grid.Row="1" Margin="10,10,10,10" Name="but_No" Click="but_No_Click"/>
+        
+    </Grid>
+</Window>
