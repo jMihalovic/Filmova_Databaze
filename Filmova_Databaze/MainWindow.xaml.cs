@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace Filmova_Databaze
 {
@@ -22,8 +23,9 @@ namespace Filmova_Databaze
     {
         public MainWindow()
         {
+
             InitializeComponent();
-            Movie.InitMovies("Movies.txt");
+            Movie.InitMovies("movies.txt");
             Movie m = new Movie();
             DataContext = m;
             Movies.SelectedIndex = 0;
@@ -53,18 +55,33 @@ namespace Filmova_Databaze
             Movie mc = (Movie)Movies.SelectedItem;
             Edit em = new Edit(mc);
             em.ShowDialog();
+            Movie.AllMovies.Add(mc);
         }
 
         private void But_Delete_Click(object sender, RoutedEventArgs e)
         {
-            Confirm cm = new Confirm();
+            Movie md = (Movie)Movies.SelectedItem;
+            Confirm cm = new Confirm(md);
             cm.ShowDialog();
+            Movie m = new Movie();
+            DataContext = m;
+            Movies.SelectedIndex = 0;
         }
 
         private void But_Filters_Click(object sender, RoutedEventArgs e)
         {
             Filters ft = new Filters();
             ft.ShowDialog();
+            Movie m = new Movie();
+            DataContext = m;
+            Movies.SelectedIndex = 0;
+        }
+
+        private void But_Save_Click(object sender, RoutedEventArgs e)
+        {
+            string mov = JsonConvert.SerializeObject(Movie.AllMovies);
+            System.IO.File.WriteAllText("movies.txt", $"{'{'}{'"'}movSave{'"'}:{mov}{'}'}");
+            MessageBox.Show("Saved");
         }
     }
 }

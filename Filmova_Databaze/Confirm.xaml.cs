@@ -10,7 +10,10 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Filmova_Databaze
 {
@@ -19,19 +22,24 @@ namespace Filmova_Databaze
     /// </summary>
     public partial class Confirm : Window
     {
-        public Confirm()
+        Movie mm;
+        public Confirm(Movie m)
         {
             InitializeComponent();
+            DataContext = m;
+            mm = m;
         }
 
         private void but_Yes_Click(object sender, RoutedEventArgs e)
         {
-
+            Movie.AllMovies.Remove(mm);
+            Movie.AllMoviesFiltered.Remove(mm);
+            Close();
         }
 
         private void but_No_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
     }
 }

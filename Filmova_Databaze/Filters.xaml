@@ -7,6 +7,55 @@
         mc:Ignorable="d"
         Title="Filters" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+            <Label Content="Filter by:"/>
+            <ComboBox Name="FBox" Margin="20, 0">
+                <ComboBoxItem Content="Nothing"/>
+                <ComboBoxItem Content="Name"/>
+                <ComboBoxItem Content="Genre"/>
+                <ComboBoxItem Content="Country of origin"/>
+                <ComboBoxItem Content="Year"/>
+                <ComboBoxItem Content="Length"/>
+                <ComboBoxItem Content="Director"/>
+                <ComboBoxItem Content="Script"/>
+                <ComboBoxItem Content="Camera"/>
+                <ComboBoxItem Content="Music"/>
+                <ComboBoxItem Content="Actors"/>
+                <ComboBoxItem Content="Rating"/>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <Label Content="What to filter:"/>
+            <TextBox Name="TFilt" Margin="20, 0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+            <Label Content="Sorting:"/>
+            <ComboBox Name="SBox" Margin="20, 0" >
+                <ComboBoxItem Content="Normal"/>
+                <ComboBoxItem Content="Reverse"/>
+            </ComboBox>
+        </StackPanel>
+
+        <Button x:Name="FilterButton" Content="Filter" Click="FilterButton_Click" Grid.Row="3" Margin="0, 10" Grid.ColumnSpan="2"/>
+
     </Grid>
 </Window>

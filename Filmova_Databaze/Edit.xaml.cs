@@ -28,18 +28,21 @@ namespace Filmova_Databaze
             IsUpdating = false;
         }
 
-        public Edit(Movie u)
+        Movie mm;
+        public Edit(Movie m)
         {
             InitializeComponent();
-            DataContext = u;
+            mm = m;
+            DataContext = m;
             IsUpdating = true;
+            Movie.AllMovies.Remove(m);
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             if (IsUpdating == false)
             {
-                Movie.AllMovies.Add((Movie)DataContext);
+                Movie.AllMoviesFiltered.Add((Movie)DataContext);
             }
             this.Close();
         }
