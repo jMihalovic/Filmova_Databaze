@@ -130,7 +130,16 @@ namespace Filmova_Databaze
             //}
 
 
-            string mo = System.IO.File.ReadAllText(json);
+            string mo;
+            try
+            {
+                mo = System.IO.File.ReadAllText(json);
+            }
+            catch
+            {
+                System.IO.File.WriteAllText("movies.txt", "");
+                mo = System.IO.File.ReadAllText(json);
+            }
 
             var movies = JsonConvert.DeserializeObject<Rootobject>(mo);
 
