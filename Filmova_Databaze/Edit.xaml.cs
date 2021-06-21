@@ -43,6 +43,7 @@ namespace Filmova_Databaze
             if (IsUpdating == false)
             {
                 Movie.AllMoviesFiltered.Add((Movie)DataContext);
+                Movie.AllMovies.Add((Movie)DataContext);
             }
             this.Close();
         }
