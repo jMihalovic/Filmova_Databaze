@@ -134,23 +134,26 @@ namespace Filmova_Databaze
             try
             {
                 mo = System.IO.File.ReadAllText(json);
+
+
+
+                var movies = JsonConvert.DeserializeObject<Rootobject>(mo);
+
+                for (int i = 0; i < movies.movSave.Length; i++)
+                {
+                    Movie.AllMovies.Add(new Movie { Name = movies.movSave[i].Name, Genre = movies.movSave[i].Genre, CountryOfOrigin = movies.movSave[i].CountryOfOrigin, Year = movies.movSave[i].Year, Length = movies.movSave[i].Length, Director = movies.movSave[i].Director, Script = movies.movSave[i].Script, Camera = movies.movSave[i].Camera, Music = movies.movSave[i].Music, Actors = movies.movSave[i].Actors, Rating = movies.movSave[i].Rating, Commentary = movies.movSave[i].Commentary });
+                }
+
+                foreach (Movie x in Movie.AllMovies)
+                {
+                    Movie.AllMoviesFiltered.Add(x);
+                }
             }
+
             catch
             {
-                System.IO.File.WriteAllText("movies.txt", "");
+                System.IO.File.WriteAllText("movies.txt", $"{'{'}{'"'}movSave{'"'}:{'}'}");
                 mo = System.IO.File.ReadAllText(json);
-            }
-
-            var movies = JsonConvert.DeserializeObject<Rootobject>(mo);
-
-            for (int i = 0; i < movies.movSave.Length; i++)
-            {
-                Movie.AllMovies.Add(new Movie { Name = movies.movSave[i].Name, Genre = movies.movSave[i].Genre, CountryOfOrigin = movies.movSave[i].CountryOfOrigin, Year = movies.movSave[i].Year, Length = movies.movSave[i].Length, Director = movies.movSave[i].Director, Script = movies.movSave[i].Script, Camera = movies.movSave[i].Camera, Music = movies.movSave[i].Music, Actors = movies.movSave[i].Actors, Rating = movies.movSave[i].Rating, Commentary = movies.movSave[i].Commentary});
-            }
-
-            foreach(Movie x in Movie.AllMovies)
-            {
-                Movie.AllMoviesFiltered.Add(x);
             }
         }
 
