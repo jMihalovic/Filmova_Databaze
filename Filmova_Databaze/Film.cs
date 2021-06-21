@@ -153,7 +153,6 @@ namespace Filmova_Databaze
             catch
             {
                 System.IO.File.WriteAllText("movies.txt", $"{'{'}{'"'}movSave{'"'}:{'}'}");
-                mo = System.IO.File.ReadAllText(json);
             }
         }
 
